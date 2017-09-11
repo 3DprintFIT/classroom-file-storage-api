@@ -3,9 +3,19 @@ import Foundation
 
 extension Droplet {
     func setupRoutes() throws {
-        post("file") { req in
+        post("/") { req in
 
-            print(req)
+            guard let token = req.headers["Authorization"]?.string  else {
+                throw Abort.unauthorized
+            }
+
+
+            if let t = self.config["production", "token"]?.string {
+                if token != "token " + t {
+                    throw Abort.unauthorized
+                }
+            }
+
             guard let filebytes = req.formData?["file"]?.part.body else {
                 throw Abort.badRequest
             }
@@ -28,7 +38,7 @@ extension Droplet {
             }
 
             var json = JSON()
-            try json.set("url", name)
+            try json.set("url", "https://files.jenkins.mit.ajty.cz/\(name)")
             return json
             
         }
