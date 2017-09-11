@@ -3,6 +3,10 @@ import Foundation
 
 extension Droplet {
     func setupRoutes() throws {
+        get("/") { req in
+            return "Running..."
+        }
+
         post("/") { req in
 
             guard let token = req.headers["Authorization"]?.string  else {
