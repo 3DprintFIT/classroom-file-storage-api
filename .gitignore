@@ -2,7 +2,6 @@
 # Created by https://www.gitignore.io/api/vapor
 
 ### Vapor ###
-Config/secrets
 Public/
 ### Vapor Patch ###
 Packages
@@ -13,3 +12,7 @@ DerivedData/
 .DS_Store
 
 # End of https://www.gitignore.io/api/vapor
+
+/Package.resolved
+/Config/crypto.json
+/Config/secrets/*.json
