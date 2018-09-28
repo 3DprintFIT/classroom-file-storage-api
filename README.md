@@ -1,5 +1,19 @@
 # File Storage API
 
+
+## Deploy
+
+Generate `Config/crypto.json` and `Config/secrets/production.json` files
+accordind to its `*.exmaple` templates. Using the copied templates is enough
+for *development*.
+
+Build and run:
+
+```bash
+vapor build
+vapor run
+```
+
 ## How to use this
 
 ### Request
